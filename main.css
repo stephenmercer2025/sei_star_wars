@@ -1,0 +1,134 @@
+    body {
+        background: radial-gradient(ellipse at center, #1a1a2e 0%, #000 100%);
+        color: #ffe81f;
+        font-family: 'Orbitron', 'Arial Black', Arial, sans-serif;
+        margin: 0;
+        min-height: 100vh;
+      }
+      h1 {
+        text-align: center;
+        font-size: 2.5em;
+        letter-spacing: 2px;
+        text-shadow: 0 0 10px #ffe81f, 0 0 20px #fff;
+        margin-top: 30px;
+      }
+      #game {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        margin: 40px auto 0 auto;
+        max-width: 900px;
+        background: rgba(0,0,0,0.7);
+        border-radius: 20px;
+        box-shadow: 0 0 30px #ffe81f44;
+        padding: 30px 0;
+      }
+      #alien, #human {
+        width: 220px;
+        text-align: center;
+        position: relative;
+      }
+      .health-bar {
+        height: 20px;
+        background: linear-gradient(90deg, #ff0000 0%, #ffe81f 100%);
+        border-radius: 10px;
+        margin: 10px 0 20px 0;
+        box-shadow: 0 0 10px #ffe81f88;
+      }
+      #score {
+        background: rgba(30,30,30,0.8);
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 0 10px #ffe81f44;
+        min-width: 160px;
+        text-align: center;
+        margin-top: 20px;
+      }
+      #winner {
+        text-align: center;
+        font-size: 2em;
+        margin: 20px 0;
+        text-shadow: 0 0 10px #ffe81f, 0 0 20px #fff;
+      }
+      #start-game, #restart-game {
+        display: block;
+        margin: 20px auto 0 auto;
+        padding: 12px 40px;
+        font-size: 1.2em;
+        background: #ffe81f;
+        color: #222;
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 0 10px #ffe81f88;
+        cursor: pointer;
+        font-family: 'Orbitron', Arial, sans-serif;
+        transition: background 0.2s;
+      }
+      #start-game:hover, #restart-game:hover {
+        background: #fff;
+        color: #ffe81f;
+      }
+      #alien-attack, #human-attack {
+        background: #222;
+        color: #ffe81f;
+        border: 2px solid #ffe81f;
+        border-radius: 8px;
+        padding: 8px 20px;
+        font-size: 1em;
+        cursor: pointer;
+        margin-top: 10px;
+        font-family: 'Orbitron', Arial, sans-serif;
+        transition: background 0.2s;
+      }
+      #alien-attack:hover, #human-attack:hover {
+        background: #ffe81f;
+        color: #222;
+      }
+      /* Sprite containers */
+      .sprite-container {
+        width: 100px;
+        height: 120px;
+        margin: 0 auto 10px auto;
+        position: relative;
+        overflow: visible;
+      }
+      /* Darth Vader animation */
+      .vader-sprite {
+        width: 100px;
+        height: 120px;
+        background: url('https://media.tenor.com/00QNYjdpIpYAAAAj/brandon-james-greer-darth-vader.gif') no-repeat center center;
+        background-size: contain;
+        position: absolute;
+        left: 0;
+        animation: vader-move 2s infinite alternate;
+      }
+      @keyframes vader-move {
+        0% { left: 0; }
+        100% { left: 20px; }
+      }
+      /* Luke Skywalker animation */
+      .luke-sprite {
+        width: 100px;
+        height: 120px;
+        background: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d4b1ad90-f188-404f-aacb-e82b42881732/dfnneu9-d4be51fd-3195-40a8-89da-8c56fcb42903.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Q0YjFhZDkwLWYxODgtNDA0Zi1hYWNiLWU4MmI0Mjg4MTczMlwvZGZubmV1OS1kNGJlNTFmZC0zMTk1LTQwYTgtODlkYS04YzU2ZmNiNDI5MDMuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.IJaHJOOM3lg_6qNmVF4TCmip3bEu7jehjZc2lzJBi8U') no-repeat center center;
+        background-size: contain;
+        position: absolute;
+        left: 0;
+        animation: luke-move 2s infinite alternate;
+      }
+      @keyframes luke-move {
+        0% { left: 0; }
+        100% { left: 20px; }
+      }
+      /* Responsive */
+      @media (max-width: 900px) {
+        #game {
+          flex-direction: column;
+          align-items: center;
+          max-width: 100%;
+          padding: 20px 0;
+        }
+        #alien, #human {
+          margin-bottom: 30px;
+        }
+      }
