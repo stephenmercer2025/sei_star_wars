@@ -94,6 +94,24 @@
 });
 </script>
 
+<script>
+  function checkScoreAndStopAudio() {
+    const alienScore = parseInt(document.getElementById('alien-score').innerText);
+    const humanScore = parseInt(document.getElementById('human-score').innerText);
+    if (alienScore >= 20 || humanScore >= 20) {
+      const audio = document.getElementById('background-music');
+      audio.pause();
+      audio.currentTime = 0;
+    }
+  }
+
+  // Hook into score updating
+  const originalUpdateScore = updateScore;
+  window.updateScore = function(attacker) {
+    originalUpdateScore(attacker);
+    checkScoreAndStopAudio();
+  };
+</script>
 
 <footer style="text-align:center; margin-top:40px; font-family: 'Orbitron', sans-serif; color: #ffe81f; background: #222; padding: 20px 0; text-shadow: 0 0 10px #ffe81f, 0 0 20px #fff;">
   <p>&copy; 2025 Stephen Smith SEI General Assembly</p>

@@ -50,8 +50,16 @@ function attack(attacker) {
             currentHealth -= 5; // Decrease health by 5
             humanHealth.style.width = currentHealth + '%';
             updateScore('alien'); // Update Alien's score
+
+            // Change the background of #game to red when alien hits
+            document.getElementById('game').style.backgroundColor = 'red'; // Target #game element
+            setTimeout(() => {
+                document.getElementById('game').style.backgroundColor = 'black'; // Reset to black after 0.5s
+            }, 500);
+
             if (currentHealth <= 0) {
-                document.getElementById('winner').innerText = 'Your fate is sealed, Obi-Wan... and the galaxy will follow me.';
+                document.getElementById('winner').innerText = 'I have brought peace, freedom, justice, and security to my new empire.';
+                document.getElementById('winner').style.fontSize = '20px'; // Make text smaller
                 clearInterval(randomAttackInterval); // Stop game
             }
         }
@@ -64,26 +72,35 @@ function attack(attacker) {
             currentHealth -= 5; // Decrease health by 5
             alienHealth.style.width = currentHealth + '%';
             updateScore('human'); // Update Human's score
+
+            // Change the background of #game to blue when human hits
+            document.getElementById('game').style.backgroundColor = 'blue'; // Target #game element
+            setTimeout(() => {
+                document.getElementById('game').style.backgroundColor = 'black'; // Reset to black after 0.5s
+            }, 500);
+
             if (currentHealth <= 0) {
-                document.getElementById('winner').innerText = 'You were the chosen one, Anakin. You were meant to bring balance, not to destroy it.';
+                document.getElementById('winner').innerText = 'You were the chosen one, Anakin. You were meant to bring balance to the force, not to destroy it.';
+                    document.getElementById('winner').style.fontSize = '20px'; // Make text smaller
                 clearInterval(randomAttackInterval); // Stop game
             }
         }
     }
 }
 
-      document.getElementById('start-game').addEventListener('click', function() {
-        var audio = document.getElementById('theme-song');
-        audio.play();  // Start the Star Wars theme music
-      });
 
-      function updateScore(attacker) {
-        if (attacker === 'alien') {
-            let currentScore = parseInt(document.getElementById('alien-score').innerText);
-            document.getElementById('alien-score').innerText = currentScore + 1;
-        } else if (attacker === 'human') {
-            let currentScore = parseInt(document.getElementById('human-score').innerText);
-            document.getElementById('human-score').innerText = currentScore + 1;
-        }
-      }
+document.getElementById('start-game').addEventListener('click', function() {
+    var audio = document.getElementById('theme-song');
+    audio.play();  // Start the Star Wars theme music
+});
+
+function updateScore(attacker) {
+    if (attacker === 'alien') {
+        let currentScore = parseInt(document.getElementById('alien-score').innerText);
+        document.getElementById('alien-score').innerText = currentScore + 1;
+    } else if (attacker === 'human') {
+        let currentScore = parseInt(document.getElementById('human-score').innerText);
+        document.getElementById('human-score').innerText = currentScore + 1;
+    }
+}
 
