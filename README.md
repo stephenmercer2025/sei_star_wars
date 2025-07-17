@@ -1,6 +1,6 @@
 Features:
 
-Darth Vader (the alien) and Obi-Wan Kenobi (the human) battle each other with randomized attacks.
+Darth Vader and Obi-Wan Kenobi battle each other with randomized attacks.
 
 If neither attacks, the background turns half-red and half-blue to represent the tie.
 
