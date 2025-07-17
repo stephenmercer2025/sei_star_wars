@@ -97,7 +97,7 @@
         width: 100px;
         height: 120px;
         background: url('https://custom-doodle.com/wp-content/uploads/doodle/newjeans/stunning-darth-vader-doodle.gif') no-repeat center center;
-        background-size: contain;
+        background-size: 150%;
         position: absolute;
         left: 0;
         animation: vader-move 2s infinite alternate;
