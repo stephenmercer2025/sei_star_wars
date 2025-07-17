@@ -31,13 +31,27 @@ function startRandomAttacks() {
     randomAttackInterval = setInterval(function() {
         let randomAttack = Math.random();
         
-        // Alien attacks human
-        if (randomAttack < 0.5) {
-            attack('alien');
+        // 20% chance for blocked attack
+        if (randomAttack < 0.2) {
+            blockAttack(); // Trigger blocked attack
+        } else if (randomAttack < 0.5) {
+            attack('alien'); // Alien attacks human
         } else {
-            attack('human');
+            attack('human'); // Human attacks alien
         }
     }, Math.random() * 2000 + 1000); // Random interval between 1-3 seconds
+}
+
+function blockAttack() {
+    // Change the background of #game to a half-red, half-blue gradient when attack is blocked
+    document.getElementById('game').style.background = 'linear-gradient(to right, red 50%, blue 50%)';
+    setTimeout(() => {
+        // Reset to black background after 0.5s
+        document.getElementById('game').style.background = 'black';
+    }, 500);
+
+    // No points are awarded for blocked attacks
+    console.log("Attack blocked! No points awarded.");
 }
 
 function attack(attacker) {
@@ -81,13 +95,12 @@ function attack(attacker) {
 
             if (currentHealth <= 0) {
                 document.getElementById('winner').innerText = 'You were the chosen one! It was said that you would destroy the Sith, not join them! Bring balance to the Force, not leave it in darkness!';
-                    document.getElementById('winner').style.fontSize = '20px'; // Make text smaller
+                document.getElementById('winner').style.fontSize = '20px'; // Make text smaller
                 clearInterval(randomAttackInterval); // Stop game
             }
         }
     }
 }
-
 
 document.getElementById('start-game').addEventListener('click', function() {
     var audio = document.getElementById('theme-song');
