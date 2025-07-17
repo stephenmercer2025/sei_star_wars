@@ -51,7 +51,7 @@ function attack(attacker) {
             humanHealth.style.width = currentHealth + '%';
             updateScore('alien'); // Update Alien's score
             if (currentHealth <= 0) {
-                document.getElementById('winner').innerText = 'Alien wins!';
+                document.getElementById('winner').innerText = 'Your fate is sealed, Obi-Wan... and the galaxy will follow me.';
                 clearInterval(randomAttackInterval); // Stop game
             }
         }
@@ -65,7 +65,7 @@ function attack(attacker) {
             alienHealth.style.width = currentHealth + '%';
             updateScore('human'); // Update Human's score
             if (currentHealth <= 0) {
-                document.getElementById('winner').innerText = 'Human wins!';
+                document.getElementById('winner').innerText = 'You were the chosen one, Anakin. You were meant to bring balance, not to destroy it.';
                 clearInterval(randomAttackInterval); // Stop game
             }
         }

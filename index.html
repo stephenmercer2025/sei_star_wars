@@ -73,20 +73,27 @@
     <source src="background.mp3" type="audio/mpeg">
 </audio>
 
-<script>
-  window.addEventListener('DOMContentLoaded', function() {
-    const audio = document.getElementById('background-music');
-    audio.play().catch(() => {
-      // Autoplay might be blocked by browser until user interacts
-    });
-  });
-</script>
-
 <style>
   #background-music {
+    display: block;
+    margin: 30px auto;
     display: none;
   }
 </style>
+
+<script>
+  document.getElementById('start-game').addEventListener('click', function() {
+    const audio = document.getElementById('background-music');
+    audio.play();
+  });  
+
+  document.getElementById('restart-game').addEventListener('click', function() {
+  const audio = document.getElementById('background-music');
+  audio.pause();
+  audio.currentTime = 0;
+});
+</script>
+
 
 <footer style="text-align:center; margin-top:40px; font-family: 'Orbitron', sans-serif; color: #ffe81f; background: #222; padding: 20px 0; text-shadow: 0 0 10px #ffe81f, 0 0 20px #fff;">
   <p>&copy; 2025 Stephen Smith SEI General Assembly</p>
