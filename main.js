@@ -80,7 +80,7 @@ function attack(attacker) {
             }, 500);
 
             if (currentHealth <= 0) {
-                document.getElementById('winner').innerText = 'You were the chosen one, Anakin. You were meant to bring balance to the force, not to destroy it.';
+                document.getElementById('winner').innerText = 'You were the chosen one! It was said that you would destroy the Sith, not join them! Bring balance to the Force, not leave it in darkness!';
                     document.getElementById('winner').style.fontSize = '20px'; // Make text smaller
                 clearInterval(randomAttackInterval); // Stop game
             }
